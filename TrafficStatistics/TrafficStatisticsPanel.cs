@@ -320,6 +320,18 @@ namespace TrafficStatistics
                 }
                 LogTextBox.ScrollToCaret();
             }
+
+            try
+            {
+                string FileName = DateTime.Now.ToString("yyyyMMddHH00");
+
+                File.AppendAllText($"Info{FileName}.log", text + Environment.NewLine);
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
         static string GetBufferHexString(byte[] buffer, int offset, int length)
